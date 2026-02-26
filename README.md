@@ -103,7 +103,7 @@ sequenceDiagram
 While this theory is logically sound, it is impractical due to foundational mechanics built into the TCP protocol and modern operating systems: **Delayed** and **Cumulative** Acknowledgments.
 
 ### TCP Delayed ACKs ([RFC 1122](https://datatracker.ietf.org/doc/html/rfc1122))
-First described in [RFC 813](https://datatracker.ietf.org/doc/html/rfc813) (1982) and officially standardized as a recommended requirement in **[RFC 1122 (Section 4.2.3.2)](https://datatracker.ietf.org/doc/html/rfc1122#section-4.2.3.2)**, TCP Delayed Acknowledgments were designed to reduce network congestion and overhead. According to the RFC, a receiving host is encouraged *not* to send an immediate ACK for every single data segment it receives.
+First described in [RFC 813](https://datatracker.ietf.org/doc/html/rfc813) (1982) and officially standardized as a recommended requirement in **[RFC 1122](https://datatracker.ietf.org/doc/html/rfc1122)**, TCP Delayed Acknowledgments were designed to reduce network congestion and overhead. According to the RFC, a receiving host is encouraged *not* to send an immediate ACK for every single data segment it receives.
 
 Since transactions are small, the chances of them being delayed by the OS network stack are very high. Because we do not have control over the client machine, we cannot force the client's OS to disable this (we can't enforce socket options like `TCP_QUICKACK` or `TCP_NODELAY`).
 
