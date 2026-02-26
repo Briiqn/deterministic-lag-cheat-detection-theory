@@ -32,7 +32,7 @@ sequenceDiagram
 
     %% Transaction 1
     S->>+TCP: Send packet 1 (SEQ=100)
-    TCP-->>S: TCP ACK (ACK=101) [T0]
+    TCP-->>S: TCP ACK (ACK=100+packet1.len) [T0]
     Note over S: Server records T0
     
     TCP->>+APP: Deliver to Netty
@@ -43,8 +43,8 @@ sequenceDiagram
     Note over S: T1 received.<br/> 1 OK.
 
     %% Transaction 2
-    S->>+TCP: Send packet 2 (SEQ=101)
-    TCP-->>S: TCP ACK (ACK=102) [T2]
+    S->>+TCP: Send packet 2 (SEQ=100+packet1.len)
+    TCP-->>S: TCP ACK (ACK=100+packet1.len+packet2.len) [T2]
     Note over S: Server records T2
     
     TCP->>+APP: Deliver to Netty
@@ -69,7 +69,7 @@ sequenceDiagram
     end
 
     S->>+TCP: Send packet 1 (SEQ=100)
-    TCP-->>S: TCP ACK (ACK=101)[T0]
+    TCP-->>S: TCP ACK (ACK=100+packet1.len) [T0]
     Note over S: Server records T0
 
     TCP->>+APP: Deliver to Netty
@@ -78,8 +78,8 @@ sequenceDiagram
     rect rgba(255, 100, 100, 0.2)
     Note right of APP: Cheat intercepts<br/>and holds transaction 1
     
-    S->>+TCP: Send packet 2 (SEQ=101)
-    TCP-->>S: TCP ACK (ACK=102) [T1]
+    S->>+TCP: Send packet 2 (SEQ=100+packet1.len)
+    TCP-->>S: TCP ACK (ACK=100+packet1.len+packet2.len) [T1]
     Note over S: Server records T1
     
     TCP->>APP: Deliver to Netty
