@@ -116,7 +116,7 @@ Because of this cumulative design, if the server sends Packet 1 and Packet 2 in 
 
 (However, one can technically make an educated guess by calculating the delta between ACKs to see which of our packets were acknowledged within them, though this loses the "deterministic" certainty).
 
-# Demo Video (with small changes to the impl & pcap dying torwards the end)
+# Demo Video on remote server (with small changes to the impl & pcap dying torwards the end)
 https://github.com/user-attachments/assets/02bcf5a8-20c1-4206-960f-bd6de58eca7e
 
 
