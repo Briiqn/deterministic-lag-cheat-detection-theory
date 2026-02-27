@@ -115,3 +115,8 @@ TCP does not acknowledge individual packets; it acknowledges a continuous stream
 Because of this cumulative design, if the server sends Packet 1 and Packet 2 in quick succession, the client's TCP stack will likely swallow the ACK for Packet 1 and simply send back a single ACK for Packet 2. This single cumulative ACK validates the receipt of both packets simultaneously. This completely breaks the strict 1:1 `Packet -> ACK` tracking required by the deterministic logic in the diagrams, as the server has no way of knowing if the client artificially held the transaction, or if the client's kernel simply grouped the acknowledgment of multiple transaction bytes together.
 
 (However, one can technically make an educated guess by calculating the delta between ACKs to see which of our packets were acknowledged within them, though this loses the "deterministic" certainty).
+
+# Demo Video (with small changes to the impl & pcap dying torwards the end)
+https://github.com/user-attachments/assets/02bcf5a8-20c1-4206-960f-bd6de58eca7e
+
+
